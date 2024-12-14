@@ -1,0 +1,6 @@
+{
+    "image": "ghcr.io/aristanetworks/avd/universal:python3.12-avd-v5.1.0",
+    "onCreateCommand": "bash -c \"$(curl -sL https://get.containerlab.dev)\"; pip3 install passlib; sudo apt-get update; sudo apt-get -y install xz-utils; rm -fr ${PWD}/avd/playbooks/eos_designs_to_containerlab; git clone https://github.com/lbarros-arista/eos_designs_to_containerlab.git ${PWD}/avd/playbooks/eos_designs_to_containerlab; rm -fr ${PWD}/avd/playbooks/eos_designs_to_containerlab/.git*; for file in ${PWD}/cEOS-lab*; do docker import ${file} ceos-lab:latest; break; done",
+    "remoteUser": "avd",
+    "appPort": [ "50081:50080" ]
+}
