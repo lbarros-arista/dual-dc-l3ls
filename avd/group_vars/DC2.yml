@@ -6,15 +6,16 @@ spine:
   defaults:
     platform: ceos
     loopback_ipv4_pool: 10.255.128.0/27
+    loopback_ipv6_pool: fc00:dead:beef:255::/64
     bgp_as: 65200
 
   nodes:
     - name: dc2-spine1
-      id: 11
+      id: 1
       mgmt_ip: 172.16.1.21/24
 
     - name: dc2-spine2
-      id: 12
+      id: 2
       mgmt_ip: 172.16.1.22/24
 
 # L3 Leaf switch group
@@ -44,13 +45,13 @@ l3leaf:
         tags: [ "DC2-RACK1" ]
       nodes:
         - name: dc2-leaf1a
-          id: 11
+          id: 1
           mgmt_ip: 172.16.1.111/24
           uplink_switch_interfaces:
             - Ethernet1
             - Ethernet1
         - name: dc2-leaf1b
-          id: 12
+          id: 2
           mgmt_ip: 172.16.1.112/24
           uplink_switch_interfaces:
             - Ethernet2
@@ -69,7 +70,7 @@ l3leaf:
           inter_domain: true
       nodes:
         - name: dc2-leaf2a
-          id: 13
+          id: 3
           mgmt_ip: 172.16.1.113/24
           uplink_switch_interfaces:
             - Ethernet3
@@ -81,7 +82,7 @@ l3leaf:
             remote_peers:
               - hostname: dc1-leaf2a
         - name: dc2-leaf2b
-          id: 14
+          id: 4
           mgmt_ip: 172.16.1.114/24
           uplink_switch_interfaces:
             - Ethernet4
@@ -105,13 +106,13 @@ host:
       uplink_switches: ['dc2-leaf1a', 'dc2-leaf1b']
       nodes:
         - name: dc2-host1a
-          id: 11
+          id: 1
           mgmt_ip: 172.16.1.161/24
           uplink_switch_interfaces:
             - Ethernet10
             - Ethernet10
         - name: dc2-host1b
-          id: 12
+          id: 2
           mgmt_ip: 172.16.1.162/24
           uplink_switch_interfaces:
             - Ethernet11
@@ -121,13 +122,13 @@ host:
       uplink_switches: ['dc2-leaf2a', 'dc2-leaf2b']
       nodes:
         - name: dc2-host2a
-          id: 13
+          id: 3
           mgmt_ip: 172.16.1.163/24
           uplink_switch_interfaces:
             - Ethernet10
             - Ethernet10
         - name: dc2-host2b
-          id: 14
+          id: 4
           mgmt_ip: 172.16.1.164/24
           uplink_switch_interfaces:
             - Ethernet11

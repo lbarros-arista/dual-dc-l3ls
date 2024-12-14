@@ -6,6 +6,7 @@ spine:
   defaults:
     platform: ceos
     loopback_ipv4_pool: 10.255.0.0/27
+    loopback_ipv6_pool: fc00:dead:beef:128::/64
     bgp_as: 65100
 
   nodes:
@@ -22,7 +23,7 @@ l3leaf:
   defaults:
     platform: ceos
     loopback_ipv4_pool: 10.255.0.0/27
-    loopback_ipv6_pool: fc00:dead:beef:255::/64
+    loopback_ipv6_pool: fc00:dead:beef:128::/64
     loopback_ipv4_offset: 2
     loopback_ipv6_offset: 2
     vtep_loopback_ipv4_pool: 10.255.1.0/27
