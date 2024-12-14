@@ -37,14 +37,14 @@ tenants:
       #   vtep_diagnostic:
       #     loopback: 11
       #     loopback_ip_range: 10.255.11.0/27
-        svis:
+      #   svis:
           - id: 21
             name: VRF10_VLAN21
-            tags: [ "DC1-RACK1", "DC1-RACK1" ]
+            tags: [ "DC1-RACK1", "DC2-RACK1" ]
             enabled: true
             ip_address_virtual: 10.10.21.1/24
           - id: 22
             name: VRF10_VLAN22
-            tags: [ "DC1-RACK1", "DC2-RACK2" ]
+            tags: [ "DC1-RACK2", "DC2-RACK2" ]
             enabled: true
-            ip_address_virtual: 10.10.22.1/24`
+            ip_address_virtual: 10.10.22.1/24
