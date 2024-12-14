@@ -1,0 +1,133 @@
+---
+port_profiles:
+
+  - profile: PP-VLAN11
+    mode: "trunk"
+    native_vlan: 4092
+    vlans: "11"
+    spanning_tree_portfast: edge
+  - profile: PP-VLAN12
+    mode: "trunk"
+    native_vlan: 4092
+    vlans: "12"
+    spanning_tree_portfast: edge
+  - profile: PP-VLAN21
+    mode: "trunk"
+    native_vlan: 4092
+    vlans: "21"
+    spanning_tree_portfast: edge
+  - profile: PP-VLAN22
+    mode: "trunk"
+    native_vlan: 4092
+    vlans: "22"
+    spanning_tree_portfast: edge
+
+servers:
+
+###########################################################
+# ---------------- Endpoint Connectivity ---------------- #
+###########################################################
+
+# --------------------------------------------------------#
+# Site1 RACK1 Endpoints
+# --------------------------------------------------------#
+
+  - name: dc1-r1-server1                                # Server name
+    rack: DC1-RACK1                                     # Informational RACK (optional)
+    adapters:
+      - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
+        switch_ports: [ Ethernet7, Ethernet7 ]          # Switch port to connect server (required)
+        switches: [ dc1-leaf1a, dc1-leaf1b ]            # Switch to connect server (required)
+        profile: PP-VLAN11                              # Port profile to apply (required)
+        port_channel:
+          endpoint_port_channel: Bond1
+          mode: active
+
+  - name: dc1-r1-server2                                # Server name
+    rack: DC1-RACK1                                     # Informational RACK (optional)
+    adapters:
+      - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
+        switch_ports: [ Ethernet8, Ethernet8 ]          # Switch port to connect server (required)
+        switches: [ dc1-leaf1a, dc1-leaf1b ]            # Switch to connect server (required)
+        profile: PP-VLAN12                              # Port profile to apply (required)
+        port_channel:
+          endpoint_port_channel: Bond1
+          mode: active
+
+# --------------------------------------------------------#
+# Site1 RACK2 Endpoints
+# --------------------------------------------------------#
+
+  - name: dc1-r2-server1                                # Server name
+    rack: DC1-RACK2                                     # Informational RACK (optional)
+    adapters:
+      - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
+        switch_ports: [ Ethernet7, Ethernet7 ]          # Switch port to connect server (required)
+        switches: [ dc1-leaf2a, dc1-leaf2b ]            # Switch to connect server (required)
+        profile: PP-VLAN21                              # Port profile to apply (required)
+        port_channel:
+          endpoint_port_channel: Bond1
+          mode: active
+
+  - name: r2-server2                                    # Server name
+    rack: DC1-RACK2                                     # Informational RACK (optional)
+    adapters:
+      - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
+        switch_ports: [ Ethernet8, Ethernet8 ]          # Switch port to connect server (required)
+        switches: [ dc1-leaf2a, dc1-leaf2b ]            # Switch to connect server (required)
+        profile: PP-VLAN22                              # Port profile to apply (required)
+        port_channel:
+          endpoint_port_channel: Bond1
+          mode: active
+
+# --------------------------------------------------------#
+# Site2 RACK1 Endpoints
+# --------------------------------------------------------#
+
+  - name: dc2-r1-server1                                # Server name
+    rack: DC2-RACK1                                     # Informational RACK (optional)
+    adapters:
+      - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
+        switch_ports: [ Ethernet7, Ethernet7 ]          # Switch port to connect server (required)
+        switches: [ dc2-leaf1a, dc2-leaf1b ]            # Switch to connect server (required)
+        profile: PP-VLAN11                              # Port profile to apply (required)
+        port_channel:
+          endpoint_port_channel: Bond1
+          mode: active
+  
+  - name: dc2-r1-server2                                # Server name
+    rack: DC2-RACK1                                     # Informational RACK (optional)
+    adapters:
+      - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
+        switch_ports: [ Ethernet8, Ethernet8 ]          # Switch port to connect server (required)
+        switches: [ dc2-leaf1a, dc2-leaf1b ]            # Switch to connect server (required)
+        profile: PP-VLAN12                              # Port profile to apply (required)
+        port_channel:
+          endpoint_port_channel: Bond1
+          mode: active
+
+# --------------------------------------------------------#
+# Site2 RACK2 Endpoints
+# --------------------------------------------------------#
+
+  - name: dc2-r2-server1                                # Server name
+    rack: DC2-RACK2                                     # Informational RACK (optional)
+    adapters:
+      - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
+        switch_ports: [ Ethernet7, Ethernet7 ]          # Switch port to connect server (required)
+        switches: [ dc2-leaf2a, dc2-leaf2b ]            # Switch to connect server (required)
+        profile: PP-VLAN21                              # Port profile to apply (required)
+        port_channel:
+          endpoint_port_channel: Bond1
+          mode: active
+
+  - name: dc2-r2-server2                                # Server name
+    rack: DC2-RACK2                                     # Informational RACK (optional)
+    adapters:
+      - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
+        switch_ports: [ Ethernet8, Ethernet8 ]          # Switch port to connect server (required)
+        switches: [ dc2-leaf2a, dc2-leaf2b ]            # Switch to connect server (required)
+        profile: PP-VLAN22                              # Port profile to apply (required)
+        port_channel:
+          endpoint_port_channel: Bond1
+          mode: active

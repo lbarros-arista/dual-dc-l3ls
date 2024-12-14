@@ -1,0 +1,86 @@
+---
+# inventory.yml
+all:
+  children:
+    SIMULATION:
+      hosts:
+        CLAB:
+          ansible_host: 1.1.1.1
+      vars:
+        ansible_user: ansible
+        ansible_password: ansible
+        ansible_become_password: ansible
+        ansible_connection: ssh
+        ansible_become: true
+        ansible_become_method: sudo
+        sim_ceos_version: ceos-lab:latest
+        containerlab_prefix: '""'
+        containerlab_mgmt_network: 172.16.1.0/24
+
+    FABRIC:
+      children:
+        DC1:
+          children:
+            DC1_SPINES:
+              hosts:
+                dc1-spine1:
+                  ansible_host: 172.16.1.11
+                dc1-spine2:
+                  ansible_host: 172.16.1.12
+            DC1_L3_LEAVES:
+              hosts:
+                dc1-leaf1a:
+                  ansible_host: 172.16.1.101
+                dc1-leaf1b:
+                  ansible_host: 172.16.1.102
+                dc1-leaf2a:
+                  ansible_host: 172.16.1.103
+                dc1-leaf2b:
+                  ansible_host: 172.16.1.104
+            DC1_HOSTS:
+              hosts:
+                host1a:
+                  ansible_host: 172.16.1.151
+                host1b:
+                  ansible_host: 172.16.1.152
+                host2a:
+                  ansible_host: 172.16.1.153
+                host2b:
+                  ansible_host: 172.16.1.154
+        DC2:
+          children:
+            DC2_SPINES:
+              hosts:
+                dc2-spine1:
+                  ansible_host: 172.16.1.21
+                dc2-spine2:
+                  ansible_host: 172.16.1.22
+            DC2_L3_LEAVES:
+              hosts:
+                dc2-leaf1a:
+                  ansible_host: 172.16.1.111
+                dc2-leaf1b:
+                  ansible_host: 172.16.1.112
+                dc2-leaf2a:
+                  ansible_host: 172.16.1.113
+                dc2-leaf2b:
+                  ansible_host: 172.16.1.114
+            DC1_HOSTS:
+              hosts:
+                host1a:
+                  ansible_host: 172.16.1.161
+                host1b:
+                  ansible_host: 172.16.1.162
+                host2a:
+                  ansible_host: 172.16.1.163
+                host2b:
+                  ansible_host: 172.16.1.164
+
+    NETWORK_SERVICES:
+      children:
+        DC1_L3_LEAVES:
+        DC2_L3_LEAVES:
+    CONNECTED_ENDPOINTS:
+      children:
+        DC1_L3_LEAVES:
+        DC2_L3_LEAVES:
