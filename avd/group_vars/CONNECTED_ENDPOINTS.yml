@@ -36,7 +36,7 @@ servers:
     rack: DC1-RACK1                                     # Informational RACK (optional)
     adapters:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
-        switch_ports: [ Ethernet7, Ethernet7 ]          # Switch port to connect server (required)
+        switch_ports: [ Ethernet10, Ethernet10 ]          # Switch port to connect server (required)
         switches: [ dc1-leaf1a, dc1-leaf1b ]            # Switch to connect server (required)
         profile: PP-VLAN11                              # Port profile to apply (required)
         port_channel:
@@ -47,7 +47,7 @@ servers:
     rack: DC1-RACK1                                     # Informational RACK (optional)
     adapters:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
-        switch_ports: [ Ethernet8, Ethernet8 ]          # Switch port to connect server (required)
+        switch_ports: [ Ethernet11, Ethernet11 ]          # Switch port to connect server (required)
         switches: [ dc1-leaf1a, dc1-leaf1b ]            # Switch to connect server (required)
         profile: PP-VLAN12                              # Port profile to apply (required)
         port_channel:
@@ -62,18 +62,18 @@ servers:
     rack: DC1-RACK2                                     # Informational RACK (optional)
     adapters:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
-        switch_ports: [ Ethernet7, Ethernet7 ]          # Switch port to connect server (required)
+        switch_ports: [ Ethernet10, Ethernet10 ]          # Switch port to connect server (required)
         switches: [ dc1-leaf2a, dc1-leaf2b ]            # Switch to connect server (required)
         profile: PP-VLAN21                              # Port profile to apply (required)
         port_channel:
           endpoint_port_channel: Bond1
           mode: active
 
-  - name: r2-server2                                    # Server name
+  - name: dc1-r2-server2                                    # Server name
     rack: DC1-RACK2                                     # Informational RACK (optional)
     adapters:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
-        switch_ports: [ Ethernet8, Ethernet8 ]          # Switch port to connect server (required)
+        switch_ports: [ Ethernet11, Ethernet11 ]          # Switch port to connect server (required)
         switches: [ dc1-leaf2a, dc1-leaf2b ]            # Switch to connect server (required)
         profile: PP-VLAN22                              # Port profile to apply (required)
         port_channel:
@@ -88,7 +88,7 @@ servers:
     rack: DC2-RACK1                                     # Informational RACK (optional)
     adapters:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
-        switch_ports: [ Ethernet7, Ethernet7 ]          # Switch port to connect server (required)
+        switch_ports: [ Ethernet10, Ethernet10 ]          # Switch port to connect server (required)
         switches: [ dc2-leaf1a, dc2-leaf1b ]            # Switch to connect server (required)
         profile: PP-VLAN11                              # Port profile to apply (required)
         port_channel:
@@ -99,7 +99,7 @@ servers:
     rack: DC2-RACK1                                     # Informational RACK (optional)
     adapters:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
-        switch_ports: [ Ethernet8, Ethernet8 ]          # Switch port to connect server (required)
+        switch_ports: [ Ethernet11, Ethernet11 ]          # Switch port to connect server (required)
         switches: [ dc2-leaf1a, dc2-leaf1b ]            # Switch to connect server (required)
         profile: PP-VLAN12                              # Port profile to apply (required)
         port_channel:
@@ -114,7 +114,7 @@ servers:
     rack: DC2-RACK2                                     # Informational RACK (optional)
     adapters:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
-        switch_ports: [ Ethernet7, Ethernet7 ]          # Switch port to connect server (required)
+        switch_ports: [ Ethernet10, Ethernet10 ]          # Switch port to connect server (required)
         switches: [ dc2-leaf2a, dc2-leaf2b ]            # Switch to connect server (required)
         profile: PP-VLAN21                              # Port profile to apply (required)
         port_channel:
@@ -125,7 +125,7 @@ servers:
     rack: DC2-RACK2                                     # Informational RACK (optional)
     adapters:
       - endpoint_ports: [ Ethernet1, Ethernet2 ]        # Server port to connect (optional)
-        switch_ports: [ Ethernet8, Ethernet8 ]          # Switch port to connect server (required)
+        switch_ports: [ Ethernet11, Ethernet11 ]          # Switch port to connect server (required)
         switches: [ dc2-leaf2a, dc2-leaf2b ]            # Switch to connect server (required)
         profile: PP-VLAN22                              # Port profile to apply (required)
         port_channel:

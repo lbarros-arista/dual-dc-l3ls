@@ -23,14 +23,14 @@ tenants:
           - id: 11
             # SVI Description
             name: VRF10_VLAN11
-            tags: [ "DC1-RACK1" ]
+            tags: [ "DC1-RACK1", "DC2-RACK1" ]
             enabled: true
             # IP anycast gateway to be used in the SVI in every leaf.
             ip_address_virtual: 10.10.11.1/24
           - id: 12
             name: VRF10_VLAN12
             enabled: true
-            tags: [ "DC1-RACK1" ]
+            tags: [ "DC1-RACK1", "DC2-RACK1" ]
             ip_address_virtual: 10.10.12.1/24
       # - name: VRF11
       #   vrf_vni: 11
@@ -40,7 +40,7 @@ tenants:
       #   svis:
           - id: 21
             name: VRF10_VLAN21
-            tags: [ "DC1-RACK1", "DC2-RACK1" ]
+            tags: [ "DC1-RACK2", "DC2-RACK2" ]
             enabled: true
             ip_address_virtual: 10.10.21.1/24
           - id: 22
